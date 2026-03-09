@@ -53,8 +53,8 @@ class SinglyLinkedList:
                 prev_node = current
                 current = current.next
                 count +=1
-                prev_node.next = new_node
-                new_node.next = current
+            prev_node.next = new_node
+            new_node.next = current
 
     def delete(self,data):
         temp =self.head
