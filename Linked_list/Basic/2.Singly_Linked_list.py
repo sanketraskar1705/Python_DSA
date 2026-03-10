@@ -56,26 +56,30 @@ class SinglyLinkedList:
             prev_node.next = new_node
             new_node.next = current
 
-    def delete(self,data):
-        temp =self.head
-        if temp.next is not None:
+    def delete(self, data):
+
+        temp = self.head
+
+        if temp is None:
+            print("List is empty")
+            return
+
+        if temp.data == data:
+            self.head = temp.next
+            return
+
+        prev_node = None
+
+        while temp is not None:
             if temp.data == data:
-                self.head = temp.next
-                return
+                break
+            prev_node = temp
+            temp = temp.next
+
+        if temp is None:
+            print("Node Not Found")
         else:
-            found = False
-            prev_node = None
-            while temp is not None:
-                if temp.data ==  data:
-                    found = True
-                    break
-                prev_node = temp
-                temp = temp.next
-            if found:
-                prev_node.next = temp.next
-                return
-            else:
-                print("Node Not Found")
+            prev_node.next = temp.next
 
 
 
